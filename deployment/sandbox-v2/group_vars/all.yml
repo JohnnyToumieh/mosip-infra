@@ -10,7 +10,7 @@ charts_root: '{{install_root}}/helm/charts'  # Helm charts root
 helm_cli_path: '{{user_home}}/bin'  # This path chosen as it is included in default $PATH in Centos 7.7
 artifactory_url: http://104.211.246.17:8040
 
-sandbox_domain_name: test-sandbox.southindia.cloudapp.azure.com 
+sandbox_domain_name: console.mosip-final.mosipcmu-pg0.wisc.cloudlab.us
 site:
   sandbox_public_url: 'https://{{sandbox_domain_name}}'
   ssl:
@@ -19,8 +19,8 @@ site:
     certificate: '/etc/letsencrypt/live/{{sandbox_domain_name}}/fullchain.pem'
     certificate_key: '/etc/letsencrypt/live/{{sandbox_domain_name}}/privkey.pem'
   captcha:
-    google_recaptcha_site_key: mysitekey
-    google_recaptcha_secret_key: mysecretekey
+    google_recaptcha_site_key: 6LeBvawZAAAAAPzDpAQ7qAxfKPKQxM8osbK8JH7O
+    google_recaptcha_secret_key: 6LeBvawZAAAAANO0hYUUHqMM7Orcbq3Me_XeYHWY
   smtp:
     email_from: mosiptestuser@gmail.com
     host: smtp.sendgrid.net
@@ -42,7 +42,7 @@ clusters:
   mz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/mzcluster.config" 
     nodeport_node: mzworker0  # Any node on cluster for nodeport access
-    any_node_ip: '10.0.0.10'
+    any_node_ip: '10.10.1.3'
     ingress:
       namespace: default
       nodeports:
@@ -70,7 +70,7 @@ clusters:
   dmz:
     kube_config:  "{{lookup('env', 'HOME') }}/.kube/dmzcluster.config" 
     nodeport_node: dmzworker0  # Any node on cluster for nodeport access
-    any_node_ip: '10.0.0.6'
+    any_node_ip: '10.10.1.11'
     ingress:
       namespace: default
       nodeports:
